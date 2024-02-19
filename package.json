@@ -1,0 +1,16 @@
+{
+  "name": "reports",
+  "scripts": {
+    "docker:up": "pnpm --filter reports-backend run docker:up",
+    "docker:down": "pnpm --filter reports-backend run docker:down",
+    "start:api": "pnpm --filter reports-backend run start:dev",
+    "start:app": "pnpm --filter reports-frontend run dev",
+    "start:all": "concurrently \"pnpm run start:app\" \"pnpm run start:api\"",
+    "format:write": "prettier --write \"**/{src,test}/**/*.{ts,tsx}\" --config \".prettierrc\" --cache",
+    "format:check": "prettier --check \"**/{src,test}/**/*.{ts,tsx}\" --config \".prettierrc\" --cache"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.2.5"
+  }
+}

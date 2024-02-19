@@ -1,0 +1,69 @@
+--------------- START BACKEND (API) ----------------
+
+TODO: Task 7 (User Authentication)
+TODO: Only allow creation of account if given appropriate access (Ex: need to provide account creation code or can only be valid jhed or use Outlook Oauth)
+TODO: Only allow access to resources if have valid JWT token (move @UseGuards(JwtAuthGuard) to above the controllers)
+TODO: Allow for search across title AND description
+TODO: Search + Pagination does not always work. EX: make 12 reports, with 1 - 12 in the title, respectively. then, search for '8' with pagintion limit = 4 and offset = 1. 
+TODO: Turn on cascading deletion of Reads along with deletion of Report itself (there is a post on Courselore for this https://courselore.org/courses/7856510879/conversations/406?conversations%5Bsearch%5D=comment) or just read the Comment entity for answer
+
+Thoughts:
+* Create one-to-one relationship with user and their profiles, as suggested in Task 8
+* Implement a many-to-many relationship for "reposting" reports (multiple people working on the same report?)
+
+Errors: 
+
+* Creation of two users with the same name will just return a "500: Internal server error." No user is created in the database, but the user id (primary key) is nonetheless incremented. We should probably make sure that a more specific error is thrown and that the user id is not incremented. (try making user with same username and then read the console logs ERROR)
+
+Hours: 10 (Backend)
+
+Today's start: XX:XX XM
+Today's end:   XX:XX XM
+
+--------------- END BACKEND (API) ----------------
+
+--------------- START FRONTEND (APP) ----------------
+
+TODO: Reformat the Report component so that the details and footer are not pushed by the margin on the left. This means you will have to move the Name, JHED, and timestamps into their own separate component (call it X). Then, create a new component to hold the avatar and the new component X.
+TODO: Optimize type imports with the "import type" keywords.
+TODO: Specify type generics of all useState's
+TODO: Add yellow tinge to the eye button if reportRead (get rid of reportRead state if not implementing this)
+TODO: Make sure that Report user profile pic and Logged in User Profile pic is transfered to the ReportView component. Not being displayed currently (may just be because route is different, may require actual URL online). This is only an issue when pictures are stored locally (like GradPhotoSquare.png), but if stored on the internet (actual url) then it works fine.
+TODO: Make sure stock icker svg not used for page favicon.
+TODO: Clear Dialog Fields upon successful submission. Do not clear if unsuccessful.
+TODO: Implement reads in DB so that state persists into the report-specific screen.
+
+Hours spent: 20 (Frontend)
+
+Today's start: XX:XX XM
+Today's end:   XX:XX XM
+
+--------------- END FRONTEND (APP) ----------------
+
+--------------- START REPORTS (MONOREPO) ----------------
+
+TODO: Address all to-do's in app and api subfolders
+TODO: See if way to configure .vscode's settings.json so that all developers on this repo have workbench colors that match that of the project. Ex: Bullpen Live development workbench would have green or yellow highlights if that was the main color on the front end app. can keep actual text background up to the developer (dark for me) (can remove synced colors across other people's dev environments by removing the "!" from !.vscode/settings.json in .gitignore)
+TODO: Figure out how I would allow for password reset without losing data and needing to create new User account. Maybe just use Outlook Oauth?
+TODO: Make buttons on the register user form so that input won't get messed up. Button for each team. button for boolean is chief. etc. maybe make dropdown for jhed and that can be the "validation." can only create an account if your jhed is a part of that dropdown. however, wouldn't want someone to make an account with another's jhed...
+TODO: Add a "Confirm Password" field underneath and add validation to ensure that both passwords are equal before proceeding.
+TODO: Consider refactoring out the Login, Comment, and Report api's within api.ts (put into api folder with 3 separate files?)
+TODO: Consider refactoring out the Users, Comment, and Report mutation and query hooks (put into 3 separate folders?)
+TODO: Add udpateComments endpoints and interaction on frontend
+TODO: Consider adding Likes to Reports instead of/in addition to Reads
+TODO: Automatically add "isRead" status to report if URL is clicked (somehow detect). Mark as unread if URL changes (updated)
+TODO: Create portion of site that displays "Read" and "Unread" reports for team leaders
+TODO: Protect ALL Report endpoints (including the Comment endpoints)
+TODO: Consider adding DialogField to components/ui/dialog.tsx (but don't)
+TODO: Show "Updated at: <time>" if report URL is updated
+TODO: Add Reads (Likes) entity
+TODO: Implement rest of CRUD operations for Comments (Update, Delete, others?)
+TODO: Allow for AvatarURL and Report file uploads instead of just URL's
+
+Hours spent: 45.5 (Total)
+(Total = Frontend + Backend)
+
+Today's start: XX:XX XM
+Today's end:   XX:XX XM
+
+--------------- END REPORTS (MONOREPO) ----------------
