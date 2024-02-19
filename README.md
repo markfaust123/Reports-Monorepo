@@ -9,6 +9,8 @@ This is the template for an app to help JHU research groups work more efficientl
 - Data persistence in Docker PostgreSQL database
 - Dynamic, client-side routing
 
+NOTE: All Tasks have been completed! The state of this monorepo is the default state following Task 16; therefore, important TODO's are still yet to be addressed.
+
 
 ## Reports Template Monorepo
 
